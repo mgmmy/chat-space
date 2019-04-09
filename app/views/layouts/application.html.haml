@@ -8,3 +8,41 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
+    .flash-box
+      グループを作成しました
+
+    .wrapper
+
+      .chat-side
+        .side-header
+          %p.side-header__user-name<
+            user-name
+          %ul.user-menu
+            %li.user-menu__edit-user<
+              %a{ :href => "" }<
+                %i.fa.fa-edit
+            %li.user-menu__new-group<
+              %a{ :href => "" }<
+                %i.fa.fa-cog
+        .groups
+          %a{ :href => "" }
+            .group
+              %p.group__name<
+                group-name
+              %p.group__last-message<
+                last-massage
+          %a{ :href => "" }
+            .group
+              %p.group__name<
+                group-name
+              %p.group__last-message<
+                last-massage
+
+      .chat-main
+        .main-header
+
+
+        .messages
+
+
+        .form
