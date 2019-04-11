@@ -40,9 +40,26 @@
 
       .chat-main
         .main-header
+          .current-group
+            %h2.current-group__name<
+              group-name
+            %ul.member-list
+              Member：
+              %li.member-list__member<
+                member-name1
+          %a{ :href => "" }
+            .main-header__edit-btn
+              Edit
 
 
         .messages
-
+          .message
+            .upper-info
+              %p.upper-info__user<
+                user-name
+              %p.upper-info__date<
+                yyyy/mm/dd() hh:mm
+            .message__text
+              massagemessagemessage...
 
         .form
