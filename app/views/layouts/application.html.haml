@@ -51,7 +51,6 @@
             .main-header__edit-btn
               Edit
 
-
         .messages
           .message
             .upper-info
@@ -63,3 +62,11 @@
               massagemessagemessage...
 
         .form
+          %form#new_message.new-message{ :enctype => "multipart/form-data" }
+            %input{ :name => "utf8", :type => "hidden", :value => "✓" }
+            .input-box
+              %input#message_content.input-box__text{ :placeholder => "type a message", :type => "text" }
+              %label.image-label{ :for => "message_image" }
+                %i.fa.fa-image
+                %input#message_image.image-label__input{ :type => "file" }
+            %input.new-message__submit-btn{ :type => "submit", :name => "commit", :value => "Send" }

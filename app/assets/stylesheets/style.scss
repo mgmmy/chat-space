@@ -7,6 +7,15 @@ body, html {
   background-color: #fff;
 }
 
+.flash-box {
+  color: #fff;
+  background-color: #38aef0;
+  text-align: center;
+}
+
+.wrapper {
+}
+
 ul {
   list-style: none;
 }
@@ -23,19 +32,14 @@ a {
   text-decoration: none;
 }
 
-.flash-box {
-  color: #fff;
-  background-color: #38aef0;
-  text-align: center;
-}
-
-.wrapper {
+.fa {
+  display: inline-block;
+  font-size: inherit;
 }
 
 .chat-side {
   color: #fff;
   width: 300px;
-  height: 100%;
   float: left;
 
   a {
@@ -56,9 +60,6 @@ a {
       display: flex;
       li {
         margin-left: 0.3rem;
-      }
-      .fa {
-        display: inline-block;
       }
     }
   }
@@ -118,7 +119,7 @@ a {
   }
   .messages {
     padding: 46px 40px;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 190px);
     overflow: scroll;
     .message {
       padding-bottom: 40px;
@@ -139,6 +140,44 @@ a {
         color: #434a54;
         font-size: 14px;
       }
+    }
+  }
+  .form {
+    height: 90px;
+    padding: 20px 40px;
+    background-color: #ddd;
+  }
+  .new-message {
+    display: flex;
+    .input-box {
+      width: 100%;
+      position: relative;
+      &__text {
+        height: 50px;
+        width: 100%;
+        padding: 0 10px;
+        background-color: #fff;
+        line-height: 50px;
+        color: #434a54;
+        border-style: none;
+      }
+      .image-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        &__input {
+          display: none;
+        }
+      }
+    }
+    &__submit-btn {
+      width: 100px;
+      background-color: #38aef0;
+      color: #fff;
+      margin-left: 15px;
+      padding: 0 30px;
     }
   }
 }
