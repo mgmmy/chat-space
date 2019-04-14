@@ -46,7 +46,7 @@ a {
     @include side-font(16px);
   }
 
-  .side-header {
+  &__header {
     height: 100px;
     width: 100%;
     padding: 0 20px;
@@ -54,7 +54,7 @@ a {
     @include side-font(16px);
     @include flexBox();
     align-items: center;
-    .user-menu {
+    &__user-menu {
       display: flex;
       li {
         margin-left: 0.3rem;
@@ -67,7 +67,7 @@ a {
     background-color: $sideGroupList;
     padding: 20px 20px 0 20px;
     overflow: scroll;
-    .group {
+    &__group {
       margin-bottom: 40px;
       font-weight: bold;
       &__name {
@@ -84,13 +84,13 @@ a {
 .chat-main {
   float: left;
   width: calc(100vw - 300px);
-  .main-header {
+  &__header {
     height: 100px;
     padding: 0 40px;
     background-color: $mainHeader;
     @include flexBox();
     border-bottom: solid 1px $border;
-    .current-group {
+    &__current-group {
       font-size: 20px;
       color: $currentGroupName;
       margin-top: 35px;
@@ -99,7 +99,7 @@ a {
         font-size: 20px;
         color: $currentGroupName;
       }
-      .member-list {
+      &__member-list {
         font-size: 12px;
         color: $currentGroupMember;
         display: flex;
@@ -120,9 +120,9 @@ a {
     height: calc(100vh - 190px);
     overflow: scroll;
     background-color: $mainMessages;
-    .message {
+    &__message {
       padding-bottom: 40px;
-      .upper-info {
+      &__upper-info {
         display: flex;
         margin-bottom: 10px;
         &__user {
@@ -148,7 +148,7 @@ a {
   }
   .new-message {
     display: flex;
-    .input-box {
+    &__input-box {
       width: 100%;
       position: relative;
       &__text {
@@ -160,7 +160,7 @@ a {
         color: $messageText;
         border-style: none;
       }
-      .image-label {
+      &__image-label {
         position: absolute;
         top: 10px;
         right: 10px;

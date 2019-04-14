@@ -6,34 +6,34 @@
   = render "chat-side"
 
   .chat-main
-    .main-header
-      .current-group
-        %h2.current-group__name
+    .chat-main__header
+      .chat-main__header__current-group
+        %h2.chat-main__header__current-group__name
           group-name
-        %ul.member-list
+        %ul.chat-main__header__current-group__member-list
           Member：
-          %li.member-list__member
+          %li.chat-main__header__current-group__member-list__member
             member-name1
       = link_to root_path do
-        .main-header__edit-btn
+        .chat-main__header__edit-btn
           Edit
 
     .messages
-      .message
-        .upper-info
-          %p.upper-info__user
+      .messages__message
+        .messages__message__upper-info
+          %p.messages__message__upper-info__user
             user-name
-          %p.upper-info__date
+          %p.messages__message__upper-info__date
             yyyy/mm/dd() hh:mm
-        .message__text
+        .messages__message__text
           massagemessagemessage...
 
     .form
       %form#new_message.new-message{ enctype: "multipart/form-data" }
         %input{ name: "utf8", type: "hidden", value: "✓" }
-        .input-box
-          %input#message_content.input-box__text{ placeholder: "type a message", type: "text" }
-          %label.image-label{ for: "message_image" }
+        .new-message__input-box
+          %input#message_content.new-message__input-box__text{ placeholder: "type a message", type: "text" }
+          %label.new-message__input-box__image-label{ for: "message_image" }
             %i.fa.fa-image
-            %input#message_image.image-label__input{ type: "file" }
+            %input#message_image.new-message__input-box__image-label__input{ type: "file" }
         %input.new-message__submit-btn{ type: "submit", name: "commit", value: "Send" }
