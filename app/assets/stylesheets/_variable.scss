@@ -1,0 +1,12 @@
+@import "./colors";
+
+@mixin side-font($size) {
+  color: $sideFont;
+  font-size: $size;
+  font-weight: bold;
+}
+
+@mixin flexBox() {
+  display: flex;
+  justify-content: space-between;
+}

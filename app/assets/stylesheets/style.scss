@@ -1,0 +1,182 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  background-color: #fff;
+}
+
+.flash-box {
+  color: $flashBoxFont;
+  background-color: $flashBox;
+  text-align: center;
+}
+
+.wrapper {
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: list-item;
+}
+
+div, p {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fa {
+  display: inline-block;
+  font-size: inherit;
+}
+
+.chat-side {
+  color: $sideFont;
+  width: 300px;
+  float: left;
+
+  a {
+    @include side-font(16px);
+  }
+
+  &__header {
+    height: 100px;
+    width: 100%;
+    padding: 0 20px;
+    background-color: $sideHeader;
+    @include side-font(16px);
+    @include flexBox();
+    align-items: center;
+    &__user-menu {
+      display: flex;
+      li {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+
+  .groups {
+    height: calc(100vh - 100px);
+    background-color: $sideGroupList;
+    padding: 20px 20px 0 20px;
+    overflow: scroll;
+    &__group {
+      margin-bottom: 40px;
+      font-weight: bold;
+      &__name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      &__last-message {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.chat-main {
+  float: left;
+  width: calc(100vw - 300px);
+  &__header {
+    height: 100px;
+    padding: 0 40px;
+    background-color: $mainHeader;
+    @include flexBox();
+    border-bottom: solid 1px $border;
+    &__current-group {
+      font-size: 20px;
+      color: $currentGroupName;
+      margin-top: 35px;
+      &__name {
+        margin-bottm: 15px;
+        font-size: 20px;
+        color: $currentGroupName;
+      }
+      &__member-list {
+        font-size: 12px;
+        color: $currentGroupMember;
+        display: flex;
+        margin-top: 15px;
+      }
+    }
+    &__edit-btn {
+      margin-top: 28px;
+      padding : 0 20px;
+      height: 40px;
+      line-height: 40px;
+      color: $flashBox;
+      border: solid 1px $flashBox;
+    }
+  }
+  .messages {
+    padding: 46px 40px;
+    height: calc(100vh - 190px);
+    overflow: scroll;
+    background-color: $mainMessages;
+    &__message {
+      padding-bottom: 40px;
+      &__upper-info {
+        display: flex;
+        margin-bottom: 10px;
+        &__user {
+          color: $messageUser;
+          font-weight: bold;
+        }
+        &__date {
+          color: $messageDate;
+          font-size: 12px;
+          padding-left: 10px;
+        }
+      }
+      &__text {
+        color: $messageText;
+        font-size: 14px;
+      }
+    }
+  }
+  .form {
+    height: 90px;
+    padding: 20px 40px;
+    background-color: $form;
+  }
+  .new-message {
+    display: flex;
+    &__input-box {
+      width: 100%;
+      position: relative;
+      &__text {
+        height: 50px;
+        width: 100%;
+        padding: 0 10px;
+        background-color: $inputBox;
+        line-height: 50px;
+        color: $messageText;
+        border-style: none;
+      }
+      &__image-label {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.3rem;
+        cursor: pointer;
+        &__input {
+          display: none;
+        }
+      }
+    }
+    &__submit-btn {
+      width: 100px;
+      background-color: $flashBox;
+      color: $flashBoxFont;
+      margin-left: 15px;
+      padding: 0 30px;
+    }
+  }
+}
