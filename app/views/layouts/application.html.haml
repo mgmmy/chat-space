@@ -1,72 +1,10 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
     %title ChatSpace
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = yield
-    .flash-box
-      グループを作成しました
-
-    .wrapper
-
-      .chat-side
-        .side-header
-          %p.side-header__user-name<
-            user-name
-          %ul.user-menu
-            %li.user-menu__edit-user<
-              %a{ :href => "" }<
-                %i.fa.fa-edit
-            %li.user-menu__new-group<
-              %a{ :href => "" }<
-                %i.fa.fa-cog
-        .groups
-          %a{ :href => "" }
-            .group
-              %p.group__name<
-                group-name
-              %p.group__last-message<
-                last-massage
-          %a{ :href => "" }
-            .group
-              %p.group__name<
-                group-name
-              %p.group__last-message<
-                last-massage
-
-      .chat-main
-        .main-header
-          .current-group
-            %h2.current-group__name<
-              group-name
-            %ul.member-list
-              Member：
-              %li.member-list__member<
-                member-name1
-          %a{ :href => "" }
-            .main-header__edit-btn
-              Edit
-
-        .messages
-          .message
-            .upper-info
-              %p.upper-info__user<
-                user-name
-              %p.upper-info__date<
-                yyyy/mm/dd() hh:mm
-            .message__text
-              massagemessagemessage...
-
-        .form
-          %form#new_message.new-message{ :enctype => "multipart/form-data" }
-            %input{ :name => "utf8", :type => "hidden", :value => "✓" }
-            .input-box
-              %input#message_content.input-box__text{ :placeholder => "type a message", :type => "text" }
-              %label.image-label{ :for => "message_image" }
-                %i.fa.fa-image
-                %input#message_image.image-label__input{ :type => "file" }
-            %input.new-message__submit-btn{ :type => "submit", :name => "commit", :value => "Send" }

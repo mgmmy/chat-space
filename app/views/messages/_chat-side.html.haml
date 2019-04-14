@@ -1,0 +1,24 @@
+.chat-side
+  .side-header
+    %p.side-header__user-name
+      user-name
+    %ul.user-menu
+      %li.user-menu__edit-user
+        = link_to root_path do
+          %i.fa.fa-edit
+      %li.user-menu__new-group
+        = link_to root_path do
+          %i.fa.fa-cog
+  .groups
+    = link_to root_path do
+      .group
+        %p.group__name
+          group-name
+        %p.group__last-message
+          last-massage
+    = link_to root_path do
+      .group
+        %p.group__name<
+          group-name
+        %p.group__last-message
+          last-massage
