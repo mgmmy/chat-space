@@ -7,10 +7,16 @@ body, html {
   background-color: #fff;
 }
 
-.flash-box {
+.flash {
   color: $flashBoxFont;
   background-color: $flashBox;
   text-align: center;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: $flashBox;
+  }
 }
 
 .wrapper {
