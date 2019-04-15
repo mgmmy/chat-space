@@ -1,13 +1,13 @@
 .chat-side
   .chat-side__header
     %p.chat-side__header__user-name
-      user-name
+      = current_user.name
     %ul.chat-side__header__user-menu
-      %li.chat-side__header__user-menu__edit-user
-        = link_to root_path do
-          %i.fa.fa-edit
       %li.chat-side__header__user-menu__new-group
         = link_to root_path do
+          %i.fa.fa-edit
+      %li.chat-side__header__user-menu__edit-user
+        = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
   .groups
     = link_to root_path do
