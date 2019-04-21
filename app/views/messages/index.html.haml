@@ -6,31 +6,26 @@
     .chat-main__header
       .chat-main__header__current-group
         %h2.chat-main__header__current-group__name
-          group-name
+          = @group.name
         %ul.chat-main__header__current-group__member-list
           Member：
           %li.chat-main__header__current-group__member-list__member
-            member-name1
-      = link_to edit_group_path(@group) do
+            - @group.users.each do |user|
+              = user.name
+      = link_to edit_group_path(@group.id) do
         .chat-main__header__edit-btn
           Edit
 
     .messages
-      .messages__message
-        .messages__message__upper-info
-          %p.messages__message__upper-info__user
-            user-name
-          %p.messages__message__upper-info__date
-            yyyy/mm/dd() hh:mm
-        .messages__message__text
-          massagemessagemessage...
+      = render @messages
 
     .form
-      %form#new_message.new-message{ enctype: "multipart/form-data" }
-        %input{ name: "utf8", type: "hidden", value: "✓" }
-        .new-message__input-box
-          %input#message_content.new-message__input-box__text{ placeholder: "type a message", type: "text" }
-          %label.new-message__input-box__image-label{ for: "message_image" }
-            %i.fa.fa-image
-            %input#message_image.new-message__input-box__image-label__input{ type: "file" }
-        %input.new-message__submit-btn{ type: "submit", name: "commit", value: "Send" }
+      .new-message
+        = form_for [@group, @message] do |f|
+          .new-message__input-box
+            = f.text_field :message, class: 'new-message__input-box__text', placeholder: 'type a message'
+            .new-message__input-box__image-label
+              = f.label :image, class: 'new-message__input-box__image-label' do
+                = fa_icon 'picture-o', class: 'fa'
+                = f.file_field :image, class: 'new-message__input-box__image-label__input'
+          = f.submit 'Send', class: 'new-message__submit-btn'
