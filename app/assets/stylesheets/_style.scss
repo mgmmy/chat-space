@@ -141,9 +141,14 @@ a {
           padding-left: 10px;
         }
       }
-      &__text {
-        color: $messageText;
-        font-size: 14px;
+      &__lower-message {
+        &__text {
+          color: $messageText;
+          font-size: 14px;
+        }
+        &__image {
+          border: 0;
+        }
       }
     }
   }
