@@ -35,8 +35,7 @@ $(function(){
     .done(function(message){
       var html = buildPostMessage(message);
       $('.messages').append(html)
-      $('.new-message__input-box__text').val('')
-      $('.new-message__input-box__image-label__input').val('')
+      $('#new-message')[0].reset();
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
       $('.new-message__submit-btn').attr('disabled', false);
     })
