@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML(message) {
+  function buildPostMessage(message) {
     var img = ""
     if (message.image.url !== null) {
       img = `<img src="${ message.image.url }">`
@@ -32,8 +32,8 @@ $(function(){
       processData: false,
       contentType: false
     })
-    .done(function(data){
-      var html = buildHTML(data);
+    .done(function(message){
+      var html = buildPostMessage(message);
       $('.messages').append(html)
       $('.new-message__input-box__text').val('')
       $('.new-message__input-box__image-label__input').val('')
