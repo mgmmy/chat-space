@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :messages
 
   validates :name, presence: true
-  validates :password, length: { minimum: 8 }
 end
