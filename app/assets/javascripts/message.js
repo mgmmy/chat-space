@@ -47,7 +47,6 @@ $(function(){
 
   var reloadMessages = function() {
     var lastMessageId = $('.messages__message:last').data('message_id');
-    console.log(lastMessageId);
     var groupId = $('.chat-main__header__current-group').data('group_id');
     $.ajax({
       url: '/groups/' + groupId + '/api/messages',
