@@ -4,7 +4,7 @@
 
   .chat-main
     .chat-main__header
-      .chat-main__header__current-group
+      .chat-main__header__current-group{ "data-group_id": @group.id }
         %h2.chat-main__header__current-group__name
           = @group.name
         %ul.chat-main__header__current-group__member-list
