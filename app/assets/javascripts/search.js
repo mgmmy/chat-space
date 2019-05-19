@@ -1,7 +1,7 @@
 $(function() {
   var searchList = $('#user-search-result');
   var memberList = $('#chat-group-users');
-  var userIds = $('#user_ids').attr('value');
+  var userIds = $('#user_ids').data('user_ids');
 
   function appendUser(user) {
     if (userIds.indexOf(user.id) == -1) {
@@ -62,11 +62,24 @@ $(function() {
   $('#user-search-result').on('click', '.user-search-add', function() {
     var userName = $(this).prev().text();
     var userId = $(this).data('userId');
+    var userIds = $('#user_ids').data('user_ids');
+    // console.log(userIds);
     $(this).parent().remove();
+    userIds.push(userId);
+    // console.log(userIds);
     appendMember(userName, userId);
+    $('#user_ids').attr('data-user_ids', userIds);
+    // console.log($('#user_ids').data('user_ids'));
   });
 
   $('#chat-group-users').on('click', '.user-search-remove', function() {
+    var userIds = $('#user_ids').data('user_ids');
+    var userId = $(this).data('userId');
+    console.log(userIds);
     $(this).parent().remove();
+    var num = userIds.indexOf(userId);
+    userIds.splice(num, 1);
+    console.log(userIds);
+    $('#user_ids').attr('data-user_ids', userIds);
   });
 });
