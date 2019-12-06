@@ -4,7 +4,10 @@ RUN apt-get update -qq && \
     apt-get install -y build-essential \
                        libpq-dev \
                        nodejs \
-                       g++ qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+                       g++ qt5-default \
+                       libqt5webkit5-dev \
+                       gstreamer1.0-plugins-base gstreamer1.0-tools \
+                       gstreamer1.0-x
 
 ENV APP_ROOT /app
 RUN mkdir $APP_ROOT
