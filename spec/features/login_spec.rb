@@ -8,8 +8,16 @@ RSpec.describe 'ログイン・サインアップ', type: :feature do
   end
 
   context '未ログイン状態のときに' do
-    it '認証画面が表示されること' do
+    it 'メッセージが表示されること' do
       expect(page).to have_content 'アカウント登録もしくはログインしてください。'
+    end
+
+    it 'メールのフィールドが表示されること' do
+      expect(page).to have_field 'Email'
+    end
+
+    it 'パスワードのフィールドが表示されること' do
+      expect(page).to have_field 'Password'
     end
 
     it 'Sign upボタンが表示されること' do
@@ -73,6 +81,24 @@ RSpec.describe 'ログイン・サインアップ', type: :feature do
         expect(page).to have_content 'テスト'
         expect(link[:href]).to eq edit_user_path(user_id)
       end
+    end
+  end
+
+  context 'ログイン画面にアクセスしたときに' do
+    let!(:user) { User.create(name: "テスト", email: "test@mail.com", password: "12345678") }
+
+    it 'メールアドレスが空で Log in を押下するとエラーメッセージが表示されること' do
+      fill_in 'Password', with: "12345678"
+      click_on 'Log in'
+      expect(page).to have_content 'Email もしくはパスワードが不正です。'
+    end
+
+    it 'すべてのフィールドを入力して Log in を押下するとトップページが表示されること' do
+      fill_in 'Email', with: "test@mail.com"
+      fill_in 'Password', with: "12345678"
+      click_on 'Log in'
+      expect(page).to have_content 'ログインしました。'
+      expect(page).to have_content 'テスト'
     end
   end
 end
