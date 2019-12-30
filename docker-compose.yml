@@ -9,7 +9,9 @@ services:
       - "3307:3306"
     volumes:
       - ./docker-data/mysql:/var/lib/mysql
-  rails:
+  rails: &app_base
+    tty: true
+    stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile
