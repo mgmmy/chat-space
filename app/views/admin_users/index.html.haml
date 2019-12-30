@@ -1,2 +1,14 @@
-%h1 AdminUsers#index
-%p Find me in app/views/admin_users/index.html.haml
+.wrapper
+
+  = render "shared/chat-side"
+
+  .chat-main
+    .chat-main__header
+    - @activities.each do |activity|
+      = link_to activity.owner.name, activity.owner if activity.owner
+      さんが
+      = link_to activity.trackable.name, activity.trackable
+      を
+      - action = activity.key == "group.create" ? "作成" : "更新"
+      = action
+      しました。
