@@ -1,0 +1,14 @@
+.timeline__content
+    .timeline__content__upper
+        .timeline__content__upper__created_at
+            = activity.created_at.strftime("%Y/%m/%d %H:%M")
+    .timeline__content__lower
+        %span.timeline__content__lower__user
+            = link_to activity.owner.name, activity.owner if activity.owner
+            さんが
+        %span.timeline__content__lower__group
+            = link_to activity.trackable.name, activity.trackable
+            を
+        %span.timeline__content__lower__action
+            - action = activity.key == "group.create" ? "作成" : "更新"
+            = "#{action}しました。"
