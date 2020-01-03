@@ -1,0 +1,13 @@
+.timeline__content
+    .timeline__content__upper
+        .timeline__content__upper__created_at
+            = activity.created_at.strftime("%Y/%m/%d %H:%M")
+    .timeline__content__lower
+        %span.timeline__content__lower__user
+            = "#{activity.owner.name}さんが" if activity.owner
+        %span.timeline__content__lower__group
+            = link_to activity.trackable.name, group_messages_path(activity.trackable)
+            を
+        %span.timeline__content__lower__action
+            - action = activity.key == "group.create" ? "作成" : "更新"
+            = "#{action}しました。"

@@ -12,6 +12,7 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
+      @group.create_activity :create, owner: current_user
       redirect_to root_path, notice: "グループを作成しました"
     else
       render :new
@@ -20,6 +21,7 @@ class GroupsController < ApplicationController
 
   def update
     if @group.update(group_params)
+      @group.create_activity :update, owner: current_user
       redirect_to group_messages_path(@group), notice: "グループを更新しました"
     else
       render :edit

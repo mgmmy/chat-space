@@ -1,0 +1,11 @@
+.wrapper
+
+  = render "shared/chat-side"
+
+  .chat-main
+    .chat-main__header
+      %h2.chat-main__header__title
+        タイムライン
+
+    .timeline
+      = render partial: "activity", collection: @activities

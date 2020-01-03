@@ -1,4 +1,6 @@
 class Group < ApplicationRecord
+  include PublicActivity::Common
+
   has_many :members
   has_many :users, through: :members
   has_many :messages
