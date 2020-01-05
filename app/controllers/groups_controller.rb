@@ -1,5 +1,7 @@
 class GroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update]
+  before_action :set_group, only: %i(edit update)
+  before_action :authorize_group, only: %i(index new create)
+  after_action :verify_authorized
 
   def index
   end
@@ -36,6 +38,11 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+    authorize @group
+  end
+
+  def authorize_group
+    authorize policy_scope(Group)
   end
 
 end
