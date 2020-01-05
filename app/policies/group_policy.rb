@@ -1,4 +1,14 @@
 class GroupPolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.where(user_id: user.id)
+      end
+    end
+  end
+
   def index?
     true
   end
@@ -16,7 +26,7 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user_id == user.id
+    record.user_id == user.id || user.admin?
   end
 
   def edit?
@@ -24,6 +34,6 @@ class GroupPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
+    user.admin?
   end
 end

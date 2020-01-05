@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: %i(edit update)
-  before_action :authorize_article, only: %i(index new create)
+  before_action :authorize_group, only: %i(index new create)
   after_action :verify_authorized
 
   def index
@@ -42,7 +42,7 @@ class GroupsController < ApplicationController
   end
 
   def authorize_group
-    authorize Group
+    authorize policy_scope(Group)
   end
 
 end
