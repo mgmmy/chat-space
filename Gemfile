@@ -82,3 +82,6 @@ gem 'fog-aws'
 gem 'public_activity'
 gem 'pundit'
 gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'redis'
+gem 'redis-namespace'

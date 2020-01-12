@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
+  ChatSpace::Application.routes.draw do
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web, at: "/sidekiq"
+    end
+  end
+
   get 'admin_users/index'
 
   devise_for :users
