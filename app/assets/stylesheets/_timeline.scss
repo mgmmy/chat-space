@@ -1,0 +1,39 @@
+.chat-main {
+    &__header {
+        height: 100px;
+        padding: 0 40px;
+        background-color: $mainHeader;
+        @include flexBox();
+        border-bottom: solid 1px $border;
+        &__title {
+            font-size: 20px;
+            color: $currentGroupName;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: $currentGroupName;
+        }
+    }
+    .timeline {
+        padding: 46px 40px 0 40px;
+        overflow-y: scroll;
+        &__content {
+            padding-bottom: 40px;
+            overflow-y: scroll;
+            &__upper {
+                display: flex;
+                margin-bottom: 10px;
+                &__created_at {
+                    color: $messageDate;
+                    font-size: 12px;
+                }
+            }
+            &__lower-message {
+                &__user {
+                color: $messageText;
+                font-size: 14px;
+                }
+            }
+        }
+    }
+}
