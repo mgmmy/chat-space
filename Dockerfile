@@ -23,4 +23,5 @@ ENV PATH="${BUNDLE_BIN}:${PATH}"
 # Let system use those stubs.
 
 COPY . /app/
+RUN gem install bundler -v 1.17.2
 RUN bundle install
