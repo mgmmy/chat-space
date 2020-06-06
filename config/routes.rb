@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+
+  ChatSpace::Application.routes.draw do
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web, at: "/sidekiq"
+    end
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   get 'admin_users/index'
 
   devise_for :users

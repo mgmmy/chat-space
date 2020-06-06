@@ -9,7 +9,11 @@ services:
       - "3307:3306"
     volumes:
       - ./docker-data/mysql:/var/lib/mysql
-  rails: &app_base
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+  rails:
     tty: true
     stdin_open: true
     build:
